@@ -65,3 +65,8 @@ ul li + li {
   display: flex;
   justify-content: space-between;
 }
+
+.button-list {
+  display: flex;
+  gap: 5px;
+}
