@@ -43,6 +43,10 @@ form {
   margin-bottom: 10px;
 }
 
+ul {
+  list-style: none;
+}
+
 form input {
   flex: 1;
   font-size: 16px;
@@ -51,4 +55,13 @@ form input {
 
 form button {
   width: 36px;
+}
+
+ul li + li {
+  margin-top: 5px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
 }

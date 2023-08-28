@@ -1,9 +1,6 @@
-function toDo() {
-  const form = document.querySelector('.form');
-  const orderList = document.querySelector('.order-list');
-  const btnDeleteAll = document.querySelector('.btn-reset');
-  const btnRemoveIten = document.querySelectorAll('.remove-iten');
+const form = document.querySelector('.form');
 
+function toDo() {
   const activityList = [];
   let i = 0;
 
