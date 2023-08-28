@@ -6,8 +6,6 @@
 }
 
 body {
-  width: 960px;
-  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,27 +30,20 @@ h1 span {
   color: blueviolet;
 }
 
-.form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+main {
+  width: 500px;
+  background-color: #fff;
+  padding: 10px;
 }
 
-.btn-add,
-.btn-reset,
-.activity {
-  padding: 0.3rem 0.5rem;
+form {
+  border: 1px solid red;
 }
 
-.order-list {
-  margin: 2rem 4rem;
+form input {
+  width: 90%;
 }
 
-li {
-  display: flex;
-  gap: 1rem;
-  margin: 1rem;
-  align-items: center;
-  justify-content: start;
+form button {
+  width: 40px;
 }
