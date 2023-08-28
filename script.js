@@ -1,4 +1,5 @@
 const form = document.querySelector('.form');
+const activity = document.querySelector('.activity');
 const taksList = document.querySelector('.task-list');
 
 function criaItem() {
@@ -8,9 +9,14 @@ function criaItem() {
 }
 criaItem();
 
-function criaParagrafo() {}
-function criaBotoes() {}
+function criaParagrafo() {
+  const p = document.createElement('p');
+  p.classList.add('action');
+  p.innerText = activity.value;
+}
+criaParagrafo();
 
+function criaBotoes() {}
 function adicionarTarefa() {}
 
 // function toDo() {
