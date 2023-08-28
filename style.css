@@ -37,13 +37,18 @@ main {
 }
 
 form {
-  border: 1px solid red;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 form input {
-  width: 90%;
+  flex: 1;
+  font-size: 16px;
+  padding: 0 5px;
 }
 
 form button {
-  width: 40px;
+  width: 36px;
 }
