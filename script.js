@@ -40,6 +40,8 @@ function criaContainerBotoes(paragrafo) {
   btnDone.addEventListener('click', () => done(paragrafo));
 
   const btnDel = criaBotaoDel();
+  btnDel.addEventListener('click', () => del());
+
   const btnEdit = criaBotaoEdit();
   containerBtn.appendChild(btnDone);
   containerBtn.appendChild(btnDel);
@@ -48,15 +50,18 @@ function criaContainerBotoes(paragrafo) {
   return containerBtn;
 }
 
-function done(paragrafo) {
-  return (paragrafo.style.textDecoration = 'line-through');
-}
-
 function criaBotaoDone() {
   const btn = document.createElement('button');
   btn.classList.add('done');
   btn.innerText = 'Feito';
   return btn;
+}
+function done(paragrafo) {
+  if (paragrafo.style.textDecoration === 'line-through') {
+    return (paragrafo.style.textDecoration = 'none');
+  } else {
+    return (paragrafo.style.textDecoration = 'line-through');
+  }
 }
 
 function criaBotaoDel() {
@@ -65,6 +70,8 @@ function criaBotaoDel() {
   btn.innerText = 'Delete';
   return btn;
 }
+function del() {}
+
 function criaBotaoEdit() {
   const btn = document.createElement('button');
   btn.classList.add('edit');
