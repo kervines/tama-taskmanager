@@ -2,11 +2,9 @@ const form = document.querySelector('.form');
 const activity = document.querySelector('.activity');
 const taksList = document.querySelector('.task-list');
 const paragrafoAction = document.querySelectorAll('.action');
+const taskItem = document.querySelector('.task-item');
 
 const btnAdd = document.querySelector('.btn-add');
-const btnDone = document.querySelector('.done');
-// const btnDel = document.querySelector('.del');
-// const btnEdit = document.querySelector('.edit');
 
 function criaItem() {
   if (!!activity.value) {
@@ -40,7 +38,7 @@ function criaContainerBotoes(paragrafo) {
   btnDone.addEventListener('click', () => done(paragrafo));
 
   const btnDel = criaBotaoDel();
-  btnDel.addEventListener('click', () => del());
+  btnDel.addEventListener('click', () => del(paragrafo));
 
   const btnEdit = criaBotaoEdit();
   containerBtn.appendChild(btnDone);
@@ -70,7 +68,9 @@ function criaBotaoDel() {
   btn.innerText = 'Delete';
   return btn;
 }
-function del() {}
+function del(paragrafo) {
+  return paragrafo.remove();
+}
 
 function criaBotaoEdit() {
   const btn = document.createElement('button');
