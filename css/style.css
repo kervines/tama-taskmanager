@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #ff6347;
+  --secondary-color: #580303;
+
+  --c1: #333;
+
+  --bg-color: #f0f8ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body {
+  color: var(--c1);
+  background-color: var(--primary-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input {
+  font-family: 'Fira Sans', sans-serif;
+}
+button {
+  cursor: pointer;
+}
+
+header {
+  padding: 1rem 0;
+  width: 100%;
+  background-color: var(--bg-color);
+  text-align: center;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+header h1 span {
+  color: var(--primary-color);
+}
+header p {
+  font-size: 0.75rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.container > p {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+#input-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+#input-container label {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+#input-task,
+#submit-task {
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+#input-task {
+  width: 100%;
+  /* border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; */
+}
+#submit-task {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  /* border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px; */
+}
+#task-container {
+  /* container das tasks */
+}
+.task:nth-child(2n + 1) {
+  background-color: var(--bg-color);
+}
+.task {
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
+
+  background-color: #c6c6c6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+}
+
+.checkToggle {
+  text-decoration: line-through;
+}
+
+.text-task input {
+  width: 100%;
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 0.125rem;
+  border: none;
+}
+.buttons {
+}
+.btn {
+  background-color: transparent;
+  border: none;
+  padding: 0.375rem;
+  color: var(--secondary-color);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  font-style: italic;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--c1);
+}

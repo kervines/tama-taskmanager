@@ -6,38 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="shortcut icon" href="img/note-sticky-solid.svg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="./style.css">
-  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/script.js" defer></script>
 
-  <title>To do - Gerenciador de Tarefas</title>
+  <title>TAMA - TaskManager</title>
 </head>
 
 <body>
   <header>
-    <h1>📝to do <span>List</span></h1>
+    <h1>Tama<span>.</span>
+    </h1>
+    <p>Seu gerenciador de tarefas.</p>
   </header>
-  <main>
-    <form class="form">
-      <input class='activity' type="text" placeholder="Adicionar tarefa..." value="">
-      <button type="submit" class="btn-add">+</button>
-      <!-- <button type="reset" class="btn-reset"> </button> -->
+  <main class="container">
+    <p>Liste suas tarefas</p>
+    <form id="input-container">
+      <label for="input-task">Tarefa</label>
+      <input type="text" id="input-task" placeholder="" autofocus>
+      <button type="submit" id="submit-task" class="fa-solid fa-location-arrow"></button>
     </form>
-    <div class="list"> <!-- Container das tarefas -->
-      <ul class="task-list"> <!-- Lista de tarefas -->
-        <!-- <li class="task-item">
-          <p class="action">EXEMPLO</p>
-          <div class="buttons">
-            <button class="done">Feito</button> <button class="del">Delete</button> <button class="edit">Edit</button>
-          </div> -->
-        </li>
-      </ul>
-      <!-- atividade aqui -->
+    <div id="task-container">
     </div>
   </main>
+  <footer>
+    <p>Kervin Espirito Santo | FrontEnd Developer & UI Designer.</p>
+  </footer>
 </body>
 
 </html>
