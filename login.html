@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/login.js"></script>
+  <script defer src="./js/login.js"></script>
 
   <title>Login TAMA</title>
 </head>
@@ -35,18 +35,18 @@
       <div class="logo-screen">
         <img src="./img/logo-t.svg" alt="">
       </div>
-      <form action="">
+      <form id="form-login" action="">
         <div class="email">
           <label for="email-login">Email</label>
-          <input type="email" id="email-login">
+          <input type="email" autocomplete="username" id="email-login">
         </div>
         <div class="password">
           <label for="password-login">Senha</label>
-          <input type="password" id="password-login">
+          <input type="password" autocomplete="current-password" id="password-login">
         </div>
         <div class="access">
-          <a href="./cadastro.html" class="login-btn">Cadastrar</a>
-          <button class="entrar">Entrar <i class="fa-solid fa-arrow-right"></i></button>
+          <a href="./cadastro.html">Cadastrar</a>
+          <button id="login-btn" class="entrar">Entrar <i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </form>
     </div>
