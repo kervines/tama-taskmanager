@@ -71,6 +71,7 @@ formRegister.addEventListener('submit', (e) => {
     name: inputName.value,
     email: inputEmail.value.toLowerCase(),
     password: inputPassword.value,
+    tasks: [],
   };
 
   usersLocalStorage(user);

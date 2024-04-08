@@ -3,9 +3,9 @@ const input = document.querySelector('#input-task');
 const taskContainer = document.querySelector('#task-container');
 const userName = document.querySelector('.user-name');
 const exit = document.querySelector('.link-cadastro');
+const userLogado = JSON.parse(localStorage.getItem('user'));
 
 const initLoginSystem = () => {
-  const userLogado = JSON.parse(localStorage.getItem('user'));
   if (!userLogado) {
     window.location.href = './login.html';
   }
@@ -21,20 +21,22 @@ const initLoginSystem = () => {
 };
 initLoginSystem();
 
-const arrLocalStorage = JSON.parse(localStorage.getItem('task')) || [];
+const localStorageUsers = JSON.parse(localStorage.getItem('users'));
+const localTasks = localStorageUsers[userLogado.index].tasks;
+
 const saveStorage = (element) => {
-  arrLocalStorage.push(element);
-  localStorage.setItem('task', JSON.stringify(arrLocalStorage));
-  return arrLocalStorage;
+  localTasks.push(element);
+  localStorage.setItem('users', JSON.stringify(localStorageUsers));
+  return localStorageUsers;
 };
 
 const deleteElement = (element) => {
-  arrLocalStorage.filter((item, index) => {
-    if (arrLocalStorage[index] === element.dataset.del) {
-      arrLocalStorage.splice(index, 1);
+  localTasks.filter((item, index) => {
+    if (localTasks[index] === element.dataset.del) {
+      localTasks.splice(index, 1);
     }
   });
-  localStorage.setItem('task', JSON.stringify(arrLocalStorage));
+  localStorage.setItem('users', JSON.stringify(localStorageUsers));
   element.parentNode.parentNode.remove();
 };
 
@@ -52,12 +54,12 @@ const updateElement = (element) => {
     input.replaceWith(p);
     p.innerText = newText;
 
-    arrLocalStorage.filter((item, index) => {
-      if (arrLocalStorage[index] === element.dataset.update) {
-        arrLocalStorage[index] = newText;
+    localTasks.filter((item, index) => {
+      if (localTasks[index] === element.dataset.update) {
+        localTasks[index] = newText;
       }
     });
-    localStorage.setItem('task', JSON.stringify(arrLocalStorage));
+    localStorage.setItem('task', JSON.stringify(localStorageUsers));
   });
 };
 
@@ -89,7 +91,7 @@ const formValidation = () => {
 };
 
 const onLoadStorage = () => {
-  arrLocalStorage.forEach((item) => {
+  localTasks.forEach((item) => {
     createTask(item);
   });
 };

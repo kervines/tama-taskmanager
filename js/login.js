@@ -20,8 +20,9 @@ const msgErro = (msg, parentElement) => {
 };
 
 const userValidation = (user) => {
-  slotsUsers.forEach((slot) => {
+  slotsUsers.forEach((slot, index) => {
     if (slot.email === user.email && slot.password === user.password) {
+      slot.index = index;
       localStorage.setItem('user', JSON.stringify(slot));
       window.location.href = './index.html';
     }
@@ -34,6 +35,7 @@ formLogin.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const user = {
+    index: '',
     email: inputEmail.value.toLowerCase(),
     password: inputPassword.value,
   };
