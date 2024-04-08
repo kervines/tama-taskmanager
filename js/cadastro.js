@@ -4,6 +4,7 @@ const inputPassword = document.querySelector('#password-register');
 const btnRegister = document.querySelector('#btn-register');
 const formRegister = document.querySelector('#form-register');
 const emailContainer = document.querySelector('.email');
+const registerOkEl = document.querySelector('.register-OK');
 
 const slotsUsers = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -17,22 +18,48 @@ const msgErro = (msg, parentElement) => {
 
   setTimeout(() => {
     p.remove();
+  }, 3000);
+};
+
+const registerOk = () => {
+  registerOkEl.style.opacity = '1';
+  registerOkEl.style.top = '50%';
+  registerOkEl.style.zIndex = '99';
+
+  setTimeout(() => {
+    registerOkEl.style.opacity = '0';
+    registerOkEl.style.top = '40%';
+    registerOkEl.style.zIndex = '-1';
   }, 2000);
+};
+
+const emailValidation = (user) => {
+  return slotsUsers.some((slot) => {
+    return slot.email === user.email;
+  });
+};
+
+const resetInputs = () => {
+  inputName.value = '';
+  inputEmail.value = '';
+  inputPassword.value = '';
 };
 
 const usersLocalStorage = (user) => {
   if (slotsUsers.length > 0) {
-    slotsUsers.forEach((slot) => {
-      if (slot.email === user.email) {
-        return msgErro('Email inválido', emailContainer);
-      } else {
-        return slotsUsers.push(user);
-      }
-    });
+    if (emailValidation(user)) {
+      msgErro('Email cadastrado, tente outro email', emailContainer);
+    } else {
+      slotsUsers.push(user);
+      registerOk();
+      resetInputs();
+    }
   }
 
   if (slotsUsers.length === 0) {
     slotsUsers.push(user);
+    registerOk();
+    resetInputs();
   }
   localStorage.setItem('users', JSON.stringify(slotsUsers));
 };
@@ -47,8 +74,4 @@ formRegister.addEventListener('submit', (e) => {
   };
 
   usersLocalStorage(user);
-
-  inputName.value = '';
-  inputEmail.value = '';
-  inputPassword.value = '';
 });

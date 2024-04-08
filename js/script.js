@@ -1,6 +1,25 @@
 const form = document.querySelector('#input-container');
 const input = document.querySelector('#input-task');
 const taskContainer = document.querySelector('#task-container');
+const userName = document.querySelector('.user-name');
+const exit = document.querySelector('.link-cadastro');
+
+const initLoginSystem = () => {
+  const userLogado = JSON.parse(localStorage.getItem('user'));
+  if (!userLogado) {
+    window.location.href = './login.html';
+  }
+
+  userName.innerHTML = `<button><i class="fa-solid fa-user"></i> ${userLogado.name}</button>`;
+  userName.href = '';
+  exit.innerText = 'Sair';
+
+  exit.addEventListener('click', () => {
+    localStorage.removeItem('user');
+    exit.href = './login.html';
+  });
+};
+initLoginSystem();
 
 const arrLocalStorage = JSON.parse(localStorage.getItem('task')) || [];
 const saveStorage = (element) => {
